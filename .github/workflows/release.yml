@@ -20,7 +20,7 @@ jobs:
       - run: git fetch --tags --force origin
       - uses: cachix/install-nix-action@ba0dd844c9180cbf77aa72a116d6fbc515d0e87b # v27
       - run: nix develop -c ./do package
-      - run: nix develop -c ./do release-notes ${GITHUB_REF_NAME#v}
+      - run: nix develop -c ./do release-notes "${GITHUB_REF_NAME#v}"
 
       - name: Read release channel from tag annotation
         id: channel
